@@ -1,0 +1,58 @@
+.bs-btn {
+	background-color: #fff;
+	border-radius: $bs-border-radius-md;
+	border: 1px solid $bs-color-gray;
+	color: $bs-color-text;
+	cursor: pointer;
+	display: inline-block;
+	font-size: $bs-font-size-md;
+	line-height: $bs-line-height;
+	padding: $bs-gutter ($bs-gutter * 3);
+	vertical-align: middle;
+	white-space: nowrap;
+	overflow: hidden;
+	transition: .3s;
+	
+	@include bs-hover() {
+		background-color: bs-lighter( $bs-color-gray );
+	}
+	
+	&--primary, &--info, &--success, &--warning, &--danger {
+		border: none;
+		color: #fff;
+	}
+	
+	&--sm {
+		font-size: $bs-font-size-sm;
+		padding: $bs-gutter ($bs-gutter * 2);
+	}
+	
+	&--lg {
+		font-size: $bs-font-size-lg;
+		padding: ($bs-gutter * 1.2) ($bs-gutter * 4);
+	}
+	
+	&--block {
+		display: block;
+	}
+	
+	@each $bs-color, $bs-color-code in $bs-colors {
+		&--#{$bs-color} {
+			background-color: $bs-color-code;
+			
+			@include bs-hover() {
+				background-color: bs-light( $bs-color-code );
+			}
+		}
+	}
+	
+	&--ghost {
+		background-color: transparent;
+		border: 1px solid #fff;
+		color: #fff;
+		
+		@include bs-hover() {
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+	}
+}
